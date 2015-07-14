@@ -9,6 +9,7 @@ var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var rimraf = require('gulp-rimraf'); // new version of gulp-clean
 var put = require('gulp-put'); // copies while maintaining directory structure
+var rename = require('gulp-rename');
 
 var onError = function(err) {
     gutil.beep();
@@ -22,18 +23,26 @@ var onError = function(err) {
 // CONFIG
 ////////////////////////////////////////////////////////////
 
+// Paths to Javascript files
 var js = {
     jQuery: 'js/vendor/jquery-1.11.3.js'
 };
+
+// Add all javascripts to be included in build to the array below
 var jsSrc = [js.jQuery];
 
+
+// Location of the 'manifest' Sass file (will import Sass files)
 var cssSrc = 'css/dev/style.scss';
 
+// Final names of process JS and CSS 
+var jsDistName = 'dist.min.js';
+var cssDistName = 'foo.css';
+
+// Directory to which all build files will be copied
 var buildDir = '_build';
 
-/*  Files to be copied to build directory
-    Note that the "*" selector will not include subdirectories,
-    so the "dev" and "vendor" css/js directories are excluded */
+// Files to be copied to build directory
 var distFiles = [
     'js/*.js',
     'css/*.css',
@@ -51,7 +60,7 @@ gulp.task('js', function() {
         .pipe(plumber({
             errorHandler: onError
         }))
-        .pipe(concat('dist.min.js'))
+        .pipe(concat(jsDistName))
         .pipe(uglify())
         .pipe(gulp.dest('js'))
         .pipe(notify({message: 'Javascript (main) complete'}));
@@ -65,6 +74,7 @@ gulp.task('css', function() {
         .pipe(sass({
             outputStyle: 'compressed'
         }))
+        .pipe(rename(cssDistName))
         .pipe(autoprefixer({
             broswers: ['last 3 versions'],
             cascade: false
@@ -74,8 +84,8 @@ gulp.task('css', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch('js/dev/*.js', ['js']);
-    gulp.watch('css/dev/*css', ['css']);
+    gulp.watch('js/**/*.js', ['js']);
+    gulp.watch('css/**/*css', ['css']);
 });
 
 gulp.task('clean', function() {
