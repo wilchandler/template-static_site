@@ -37,7 +37,7 @@ var cssSrc = 'css/dev/style.scss';
 
 // Final names of process JS and CSS 
 var jsDistName = 'dist.min.js';
-var cssDistName = 'foo.css';
+var cssDistName = 'dist.min.css';
 
 // Directory to which all build files will be copied
 var buildDir = '_build';

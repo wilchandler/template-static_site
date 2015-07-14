@@ -1,6 +1,6 @@
 # Template for building HTML/(S)CSS/JS/PHP sites
 
-Provides a basic directory structure and configurable build tasks with Gulp.  There are two branches, one with some libraries included (master) and one without (no-lib).
+Provides a basic directory structure and configurable build tasks with Gulp. The master branch will include a few common libraries, but these can be easily removed.
 
 ## Build Tasks (with Gulp)
 
