@@ -1,3 +1,7 @@
 node_modules/
 *DS_Store
 _build/
+
+# Ignore the build CSS and JS
+css/*.css
+js/*.js
