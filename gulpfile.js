@@ -23,8 +23,9 @@ var onError = function(err) {
 ////////////////////////////////////////////////////////////
 
 var js = {
+    jQuery: 'js/vendor/jquery-1.11.3.js'
 };
-var jsSrc = [];
+var jsSrc = [js.jQuery];
 
 var cssSrc = 'css/dev/style.scss';
 
