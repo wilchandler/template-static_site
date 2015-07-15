@@ -25,7 +25,8 @@ var onError = function(err) {
 
 // Paths to Javascript files
 var js = {
-    jQuery: 'js/vendor/jquery-1.11.3.js'
+    jQuery: 'js/vendor/jquery-1.11.3.js',
+    WCValidations: 'js/vendor/wc-validations.js'
 };
 
 // Add all javascripts to be included in build to the array below
