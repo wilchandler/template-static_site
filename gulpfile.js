@@ -85,7 +85,7 @@ gulp.task('css', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch('js/dev/*.js', ['js']);
+    gulp.watch(jsSrc, ['js']);
     gulp.watch('css/dev/*css', ['css']);
 });
 
